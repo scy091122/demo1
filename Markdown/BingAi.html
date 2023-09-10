@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>学堂在线 - 精品在线课程学习平台</title>
+    <style>
+        /* 定义全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 定义导航栏样式 */
+        .nav {
+            width: 100%;
+            height: 60px;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            width: 200px;
+            height: 40px;
+            margin-left: 20px;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            margin-right: 20px;
+        }
+
+        .nav-menu li {
+            margin-left: 20px;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 16px;
+        }
+
+        .nav-menu li a:hover {
+            color: #0084ff;
+        }
+
+        /* 定义轮播图样式 */
+        .slider {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-imgs {
+            width: 500%;
+            height: 100%;
+            display: flex;
+            transition: all 1s ease-in-out;
+        }
+
+        .slider-imgs img {
+            width: 20%;
+            height: 100%;
+        }
+
+        .slider-dots {
+            width: 100%;
+            height: 20px;
+            position: absolute;
+            bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ffffff88;
+            margin-left: 5px;
+        }
+
+        .slider-dots span.active {
+            background-color:#0084ff88 ;
+        }
+
+        /* 定义课程列表样式 */
+        .course-list {
+            width: 80%;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-gap: 20px; 
+        }
+
+        .course-item {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #cccccc55; 
+        }
+
+        .course-item img {
+           width :100%;
+           height :200px ;
+           border-top-left-radius: 10px;
+           border-top-right-radius: 10px;
+        }
+
+        .course-item h3 {
+            margin: 10px;
+            font-size: 18px;
+            color: #333333;
+        }
+
+        .course-item p {
+            margin: 10px;
+            font-size: 14px;
+            color: #999999;
+        }
+
+        /* 定义页脚样式 */
+        .footer {
+            width: 100%;
+            height: 100px;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: #999999;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <img src="^5^" alt="学堂在线" class="nav-logo">
+        <ul class="nav-menu">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">课程</a></li>
+            <li><a href="#">学习中心</a></li>
+            <li><a href="#">关于我们</a></li>
+        </ul>
+    </div>
+
+    <!-- 轮播图 -->
+    <div class="slider" id="slider">
+        <div class="slider-imgs" id="slider-imgs">
+            <img src="^6^" alt="工程伦理">
+            <img src="^7^" alt="电极过程动力学">
+            <img src="^8^" alt="R语言数据分析">
+            <img src="^9^" alt="国际金融专题">
+            <img src="^10^" alt="工程伦理">
+        </div>
+        <div class="slider-dots" id="slider-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- 课程列表 -->
+    <div class="course-list">
+        <div class="course-item">
+            <img src="^11^" alt="工程伦理">
+            <h3>工程伦理</h3>
+            <p>讲授工程中的职业道德问题，培养工程伦理意识和分析论证能力。</p>
+        </div>
+        <div class="course-item">
+            <img src="^12^" alt="电极过程动力学">
+            <h3>电极过程动力学</h3>
+            <p>以高新技术应用为重点，用图文并茂的方式，介绍各类材料。</p>
+        </div>
+        <div class="course-item">
+            <img src="^13^" alt="R语言数据分析">
+            <h3>R语言数据分析</h3>
+            <p>数据赋人工系统以智能，带您解析智慧生活背后的原理。</p>
+        </div>
+        <div class="course-item">
+            <img src="^14^" alt="国际金融专题">
+            <h3>国际金融专题</h3>
+            <p>以专题形式展开，对主要的国际金融问题进行系统梳理。</p>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>© 2023 学堂在线 版权所有 | 联系我们 | 隐私政策 | 使用条款</p>
+    </div>
+
+    <!-- JS代码 -->
+    <script>
+        // 获取轮播图相关元素
+        var slider = document.getElementById("slider");
+        var sliderImgs = document.getElementById("slider-imgs");
+        var sliderDots = document.getElementById("slider-dots");
+        
+        // 定义轮播图索引和定时器
+        var index = 0;
+        var timer = null;
+
+        // 定义轮播图切换函数
+        function slideTo(i) {
+           // 更新轮播图索引
+           index = i;
+
+           // 切换图片
+           sliderImgs.style.left = -i * 100 + "%";
